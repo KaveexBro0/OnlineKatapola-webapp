@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account - Online Katapola</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <nav class="topbar">
+      <button onclick="goBack()" class="back-btn"><i class="fas fa-arrow-left"></i></button>
+      <h1>My Account</h1>
+    </nav>
+
+    <section id="content">
+      <div class="account-card">
+        <i class="fas fa-user-circle fa-5x"></i>
+        <h2 id="account-username">@Username</h2>
+        <p><i class="fas fa-id-badge"></i> User ID: <span id="account-userid">0000</span></p>
+        <p><i class="fas fa-wallet"></i> Balance: <span id="account-balance">0.00 USD</span></p>
+        <p><i class="fas fa-coins"></i> Demo Balance: <span id="account-demo">0.00 USD</span></p>
+      </div>
+
+      <div class="account-actions">
+        <button onclick="openDeposit()"><i class="fas fa-plus-circle"></i> Deposit</button>
+        <button onclick="openWithdraw()"><i class="fas fa-minus-circle"></i> Withdraw</button>
+        <button onclick="openSettings()"><i class="fas fa-cog"></i> Settings</button>
+      </div>
+    </section>
+
+    <nav class="bottombar">
+      <button onclick="navigate('home')"><i class="fas fa-home"></i><br>Home</button>
+      <button onclick="navigate('account')"><i class="fas fa-user"></i><br>Account</button>
+      <button onclick="navigate('stats')"><i class="fas fa-chart-bar"></i><br>Stats</button>
+      <button onclick="navigate('rewards')"><i class="fas fa-gift"></i><br>Rewards</button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
