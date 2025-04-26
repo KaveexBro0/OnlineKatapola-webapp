@@ -1,4 +1,3 @@
-// Smooth page navigation
 function navigate(page) {
   switch (page) {
     case 'account':
@@ -18,79 +17,62 @@ function navigate(page) {
   }
 }
 
-// When page loads
 window.onload = function() {
   if (window.Telegram && Telegram.WebApp) {
     Telegram.WebApp.ready();
+    console.log('✅ Telegram WebApp detected');
 
     const user = Telegram.WebApp.initDataUnsafe?.user || {};
 
     if (user.username) {
       document.getElementById('username').textContent = '@' + user.username;
-    } else {
-      document.getElementById('username').textContent = '@Unknown';
     }
-
     if (user.id) {
       document.getElementById('userId').textContent = user.id;
       fetchBalance(user.id);
-    } else {
-      document.getElementById('userId').textContent = 'Unknown';
-      showError('⚠️ Cannot detect user ID.');
     }
   } else {
-    showError('⚠️ Telegram WebApp not detected.');
+    console.warn('⚠️ Telegram WebApp not detected.');
+    showError('Please open through Telegram WebApp.');
   }
 }
 
-// Fetch user's balance securely
 function fetchBalance(userId) {
-  const apiUrl = `https://t.me/TestDriveInPussy_bot/api_get_balance?user_id=${userId}`;
+  const apiUrl = `https://your-api-domain.com/api/get_balance?user_id=${userId}`; // Replace with real endpoint!
 
-  // Show loading
   setLoading(true);
 
   fetch(apiUrl)
     .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
-      }
+      if (!response.ok) throw new Error('Network response not ok');
       return response.json();
     })
     .then(data => {
       if (data.error) {
-        showError('⚠️ ' + data.error);
+        showError(data.error);
       } else {
-        document.getElementById('balance').textContent = `${formatMoney(data.balance)} USD`;
-        document.getElementById('demoBalance').textContent = `${formatMoney(data.demo_balance)} USD`;
+        document.getElementById('balance').textContent = formatMoney(data.balance) + ' USD';
+        document.getElementById('demoBalance').textContent = formatMoney(data.demo_balance) + ' USD';
       }
     })
     .catch(error => {
-      console.error('Balance Fetch Error:', error);
-      showError('⚠️ Network or server error.');
+      console.error('Error fetching balance:', error);
+      showError('Failed to fetch balance.');
     })
     .finally(() => {
       setLoading(false);
     });
 }
 
-// Format number nicely
 function formatMoney(amount) {
   return Number(amount).toFixed(2);
 }
 
-// Show error alert
 function showError(message) {
   alert(message);
 }
 
-// Loading indicator (optional spinner later)
 function setLoading(isLoading) {
-  const balanceElem = document.getElementById('balance');
-  const demoElem = document.getElementById('demoBalance');
-  
-  if (isLoading) {
-    balanceElem.textContent = 'Loading...';
-    demoElem.textContent = 'Loading...';
-  }
+  document.getElementById('balance').textContent = isLoading ? 'Loading...' : '0.00 USD';
+  document.getElementById('demoBalance').textContent = isLoading ? 'Loading...' : '0.00 USD';
 }
