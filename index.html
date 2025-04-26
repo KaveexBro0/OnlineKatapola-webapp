@@ -4,33 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Online Katapola 🎲</title>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
     <nav class="topbar">
-      <h1>Online Katapola 🎲</h1>
+      <i class="fas fa-dice fa-spin"></i>
+      <h1>Online Katapola</h1>
     </nav>
-    
+
     <section id="content">
       <div class="balance-card">
-        <p>💰 Balance:</p>
+        <p><i class="fas fa-wallet"></i> Balance:</p>
         <h2 id="real-balance">0.00 USD</h2>
-        <p>🎮 Demo Balance:</p>
+        <p><i class="fas fa-coins"></i> Demo Balance:</p>
         <h2 id="demo-balance">0.00 USD</h2>
       </div>
 
       <div class="action-buttons">
-        <button onclick="playDice()">🎲 Play Dice</button>
-        <button onclick="withdraw()">💸 Withdraw</button>
+        <button onclick="playDice()">
+          <i class="fas fa-dice"></i> Play Dice
+        </button>
+        <button onclick="withdraw()">
+          <i class="fas fa-money-bill-wave"></i> Withdraw
+        </button>
       </div>
     </section>
 
     <nav class="bottombar">
-      <button onclick="navigate('account')">👤 Account</button>
-      <button onclick="navigate('stats')">📊 Stats</button>
-      <button onclick="navigate('rewards')">🎁 Rewards</button>
-      <button onclick="navigate('settings')">⚙️ Settings</button>
+      <button onclick="navigate('account')"><i class="fas fa-user"></i><br>Account</button>
+      <button onclick="navigate('stats')"><i class="fas fa-chart-line"></i><br>Stats</button>
+      <button onclick="navigate('rewards')"><i class="fas fa-gift"></i><br>Rewards</button>
+      <button onclick="navigate('settings')"><i class="fas fa-cog"></i><br>Settings</button>
     </nav>
   </div>
 
