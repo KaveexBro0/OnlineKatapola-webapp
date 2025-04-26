@@ -45,7 +45,7 @@ window.onload = function() {
 
 // Fetch user's balance securely
 function fetchBalance(userId) {
-  const apiUrl = `https://yourdomain.com/api_get_balance?user_id=${userId}`;
+  const apiUrl = `https://t.me/TestDriveInPussy_bot/api_get_balance?user_id=${userId}`;
 
   // Show loading
   setLoading(true);
