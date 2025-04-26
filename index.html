@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Katapola 🎲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <nav class="topbar">
+      <h1>Online Katapola 🎲</h1>
+    </nav>
+    
+    <section id="content">
+      <div class="balance-card">
+        <p>💰 Balance:</p>
+        <h2 id="real-balance">0.00 USD</h2>
+        <p>🎮 Demo Balance:</p>
+        <h2 id="demo-balance">0.00 USD</h2>
+      </div>
+
+      <div class="action-buttons">
+        <button onclick="playDice()">🎲 Play Dice</button>
+        <button onclick="withdraw()">💸 Withdraw</button>
+      </div>
+    </section>
+
+    <nav class="bottombar">
+      <button onclick="navigate('home')">🏠 Home</button>
+      <button onclick="navigate('stats')">📊 Stats</button>
+      <button onclick="navigate('rewards')">🎁 Rewards</button>
+      <button onclick="navigate('settings')">⚙️ Settings</button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
